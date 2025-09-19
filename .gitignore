@@ -1,7 +1,6 @@
 Cargo.lock
 target/
 .vscode/
-solutions/
 .rustlings-state.txt
 
 
