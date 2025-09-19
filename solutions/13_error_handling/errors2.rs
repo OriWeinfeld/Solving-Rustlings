@@ -16,13 +16,18 @@
 
 use std::num::ParseIntError;
 
+#[allow(unused_variables, clippy::question_mark)]
 fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let processing_fee = 1;
     let cost_per_item = 5;
 
-    // TODO: Handle the error case as described above.
+    // Added `?` to propagate the error.
+    let qty = item_quantity.parse::<i32>()?;
+    //                                    ^ added
+
+    // Equivalent to this verbose version:
     let qty = match item_quantity.parse::<i32>() {
-        Ok(quantity) => quantity,
+        Ok(v) => v,
         Err(e) => return Err(e),
     };
 
